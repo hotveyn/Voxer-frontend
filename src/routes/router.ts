@@ -1,15 +1,55 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
-import HomePage from "@/pages/HomePage.vue"
+import HomePage from "@/pages/HomePage.vue";
+import LoginPage from "@/pages/LoginPage.vue";
+import RegPage from "@/pages/RegPage.vue";
+import ProfilePage from "@/pages/ProfilePage.vue";
+import ConsultationsPage from "@/pages/ConsultationsPage.vue"
+import RegionsPage from "@/pages/RegionsPage.vue"
+import UsersPage from "@/pages/UsersPage.vue"
 
 const routes: RouteRecordRaw[] = [
     {
-        path: "",
+        path: "/",
         name: "home",
-        component: HomePage
+        component: HomePage,
+    },
+    {
+        path: "/profile",
+        name: "profile",
+        component: ProfilePage,
+        beforeEnter: (to, from, next) => {
+            if (localStorage.getItem("token")) next();
+            else next("/login");
+        },
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: LoginPage,
+    },
+    {
+        path: "/registration",
+        name: "reg",
+        component: RegPage,
+    },
+    {
+        path:"/consultations",
+        name:"consultations",
+        component:ConsultationsPage
+    },
+    {
+        path:"/regions",
+        name:"regions",
+        component: RegionsPage
+    },
+    {
+        path:"/users",
+        name:"users",
+        component:UsersPage
     }
-]
+];
 
 export default createRouter({
     history: createWebHistory(),
-    routes
-})
+    routes,
+});
