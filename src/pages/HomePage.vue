@@ -1,6 +1,8 @@
 <template>
 <main>
-  <h1>homepage</h1>
+  <div class="container home-container">
+    <h1>homepage</h1>
+  </div>
 </main>
 </template>
 
@@ -11,4 +13,7 @@
 
 <style scoped lang="scss">
 
+.home-container{
+  min-height: 80vh;
+}
 </style>
