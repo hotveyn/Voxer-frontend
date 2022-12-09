@@ -1,25 +1,27 @@
 <template>
-<main>
-  <div class="container container-consultation">
-    <div
-        v-if="isLoading"
-        class="loading"
-    >
-      <p>Загрузка</p>
-    </div>
-    <template v-else>
+  <main>
+    <div class="container container-consultation">
       <div
-          v-for="consultation in consultations"
-          class="consultation"
+          v-if="isLoading"
+          class="loading"
       >
-        {{consultation.id}}
+        <p>Загрузка</p>
       </div>
-    </template>
-  </div>
-</main>
+        <div
+            v-else
+            class="consultations"
+        >
+          <ConsultationItem
+              v-for="consultation in consultations"
+              :consultation="consultation"
+          />
+        </div>
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">
+import ConsultationItem from "@/components/consultations/ConsultationItem.vue";
 import IConsultation from "@/interfaces/IConsultation";
 import {baseFormRequest} from "@/services/baseFormRequest";
 import {ref} from "vue";
@@ -27,11 +29,11 @@ import {ref} from "vue";
 let consultations = ref<IConsultation[]>();
 let isLoading = ref<boolean>(true);
 
-async function getConsultations(){
-  const request = new(baseFormRequest as any)("http://127.0.0.1:8000/api/consultations/","GET",{},localStorage.getItem("token"))
+async function getConsultations() {
+  const request = new (baseFormRequest as any)("http://127.0.0.1:8000/api/consultations/", "GET", {}, localStorage.getItem("token"));
   let response = await request.goSend();
 
-  if(response.ok){
+  if (response.ok) {
     response = await response.json();
 
     consultations.value = response.data.consultations;
@@ -40,13 +42,18 @@ async function getConsultations(){
     return console.log(response.status);
   }
 
-  return console.log(response.status)
+  return console.log(response.status);
 
 }
 
-getConsultations()
+getConsultations();
 </script>
 
 <style scoped lang="scss">
+@import "!/usage.scss";
 
+.consultations{
+  @include myGrid();
+  gap: 50px;
+}
 </style>
