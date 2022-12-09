@@ -1,0 +1,15 @@
+$myOrange: #f6b03e;
+$myDarkOrange: #94680e;
+$myLightOrange: #f3e2ce;
+
+@mixin myFlex($jc:space-between,$ai:center,$fd:row){
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+  flex-direction: $fd;
+}
+@mixin myGrid($c: 3, $r:1){
+  display: grid;
+  grid-template-columns: repeat($c, 1fr);
+  grid-template-rows: repeat($r, 1fr);
+}
