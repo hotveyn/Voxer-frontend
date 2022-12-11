@@ -4,8 +4,8 @@ import IRequest from "@/interfaces/IRequest";
 import IReview from "@/interfaces/IReview";
 import IUser from "@/interfaces/IUser";
 
-export default interface IConsultation{
-    id:number,
+export default interface IConsultation {
+    id: number,
     kid: IKid,
     question: IQuestion,
     consultant: IUser,

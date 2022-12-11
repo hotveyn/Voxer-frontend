@@ -1,6 +1,6 @@
-export default interface IReview{
-    id: number,
-    rate: number,
-    description: string,
-    code: number
+export default interface IReview {
+    id: number;
+    rate: number;
+    description: string;
+    code: number;
 }

@@ -52,8 +52,12 @@ getConsultations();
 <style scoped lang="scss">
 @import "!/usage.scss";
 
-.consultations{
-  @include myGrid();
-  gap: 50px;
+.container-consultation{
+  @include myFlex($jc:center, $ai:center);
+
+  .consultations{
+    @include myGrid(1);
+    gap: 50px;
+  }
 }
 </style>

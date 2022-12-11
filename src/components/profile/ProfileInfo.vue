@@ -22,7 +22,12 @@
     >
       <div class="info-item organization">
         <p>Организация</p>
-        <p>        {{ userInfo?.organization.name }}
+        <p> {{ userInfo?.organization.name }}
+        </p>
+      </div>
+      <div class="info-item region">
+        <p>Регион</p>
+        <p> {{ userInfo?.organization.region.name }}
         </p>
       </div>
       <div class="info-item category">
@@ -39,7 +44,7 @@
 import IUser from "@/interfaces/IUser";
 import {inject} from "vue";
 
-const userInfo = inject<IUser>("userInfo")
+const userInfo = inject<IUser>("userInfo");
 
 </script>
 

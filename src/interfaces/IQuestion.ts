@@ -1,7 +1,7 @@
 import ICategory from "@/interfaces/ICategory";
 
-export default interface IQuestion{
-    id: number
-    description: string
-    question_category?:ICategory
+export default interface IQuestion {
+    id: number;
+    name: string;
+    description: string;
 }
