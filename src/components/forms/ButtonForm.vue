@@ -1,27 +1,26 @@
 <template>
-  <button
-      @click.prevent="redirect()"
-      type="submit"
+<!--  <button-->
+<!--      @click.prevent="redirect()"-->
+<!--      type="submit"-->
+<!--      class="button"-->
+<!--  >-->
+<!--    <slot/>-->
+<!--  </button>-->
+  <Component
+      :is="name ? 'RouterLink' : 'button'"
+      :to="{name, params: {id: 1}}"
       class="button"
   >
     <slot/>
-  </button>
+  </Component>
 </template>
 
 <script setup lang="ts">
-
 import {useRouter} from "vue-router";
 
 const props = defineProps<{
   name?: string
 }>();
-
-const router = useRouter();
-
-function redirect(){
-  if(props.name) router.push({name: props.name});
-}
-
 </script>
 
 <style scoped lang="scss">

@@ -36,7 +36,7 @@
 
 <script setup lang="ts">
 
-import {inject, ref, watch} from "vue";
+import {inject} from "vue";
 
 const props = defineProps<{
   status: "NEW" | "ACCEPT" | "DECLINED" | "DONE"

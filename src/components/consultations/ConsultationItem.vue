@@ -46,9 +46,9 @@ const props = defineProps<{
   consultation: IConsultation
 }>();
 
-let date = ref<string | null | undefined>(props.consultation.request.date);
-let reason = ref<string | null | undefined>(props.consultation.request.reason);
-let result = ref<string | null | undefined>(props.consultation.request.result);
+let date = ref<string | null |  undefined>(props.consultation.request.date);
+let reason = ref<string | null |  undefined>(props.consultation.request.reason);
+let result = ref<string | null |  undefined>(props.consultation.request.result);
 
 provide("date", date);
 provide("reason", reason);
@@ -81,6 +81,7 @@ async function changeStatus() {
     return console.log(response.status);
   }
 }
+
 
 </script>
 

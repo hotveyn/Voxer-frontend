@@ -16,6 +16,21 @@
               >
                 Консултанции
               </ButtonForm>
+
+              <template
+                  v-if="userInfo?.type.id !== 2"
+              >
+                <ButtonForm
+                    name="regions"
+                >
+                  Регионы
+                </ButtonForm>
+                <ButtonForm
+                    name="organizations"
+                >
+                  Организации
+                </ButtonForm>
+              </template>
           </template>
         </div>
       </div>
@@ -28,7 +43,7 @@ import ButtonForm from "@/components/forms/ButtonForm.vue";
 import ProfileInfo from "@/components/profile/ProfileInfo.vue";
 import IUser from "@/interfaces/IUser";
 import {baseFormRequest} from "@/services/baseFormRequest.js";
-import {provide, ref} from "vue";
+import {onMounted, provide, ref} from "vue";
 
 let userInfo = ref<IUser>();
 let isLoading = ref<boolean>(true);
@@ -49,10 +64,11 @@ async function getUserInfo() {
 
     return console.log(response.status);
   }
-
 }
 
-getUserInfo();
+onMounted(()=>{
+  getUserInfo();
+})
 
 </script>
 

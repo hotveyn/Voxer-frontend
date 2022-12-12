@@ -40,7 +40,6 @@
 </template>
 
 <script setup lang="ts">
-
 import IUser from "@/interfaces/IUser";
 import {inject} from "vue";
 

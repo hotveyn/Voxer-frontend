@@ -1,7 +1,6 @@
 export const baseFormRequest = function (this: any, url: string, method: string = "POST", attr: any = {}, token: string = "") {
     async function goSend() {
         if (method !== "POST") {
-            console.log(url + "?" + new URLSearchParams(attr))
             return await fetch(url + "?" + new URLSearchParams(attr), {
                 method: method,
                 headers: {
@@ -22,6 +21,5 @@ export const baseFormRequest = function (this: any, url: string, method: string 
             });
         }
     }
-
     return {goSend};
 };

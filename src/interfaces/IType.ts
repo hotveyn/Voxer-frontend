@@ -1,4 +1,4 @@
 export default interface IType {
-    id: number;
-    type: string;
+    id: number
+    type: string
 }

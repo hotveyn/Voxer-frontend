@@ -24,7 +24,7 @@
 import ConsultationItem from "@/components/consultations/ConsultationItem.vue";
 import IConsultation from "@/interfaces/IConsultation";
 import {baseFormRequest} from "@/services/baseFormRequest";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 
 let consultations = ref<IConsultation[]>();
 let isLoading = ref<boolean>(true);
@@ -46,7 +46,9 @@ async function getConsultations() {
 
 }
 
-getConsultations();
+onMounted(()=>{
+  getConsultations();
+})
 </script>
 
 <style scoped lang="scss">

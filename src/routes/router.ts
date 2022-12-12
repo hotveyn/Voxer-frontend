@@ -6,6 +6,7 @@ import ProfilePage from "@/pages/ProfilePage.vue";
 import ConsultationsPage from "@/pages/ConsultationsPage.vue"
 import RegionsPage from "@/pages/RegionsPage.vue"
 import UsersPage from "@/pages/UsersPage.vue"
+import OrganizationPage from "@/pages/OrganizationsPage.vue"
 
 const routes: RouteRecordRaw[] = [
     {
@@ -46,6 +47,11 @@ const routes: RouteRecordRaw[] = [
         path:"/users",
         name:"users",
         component:UsersPage
+    },
+    {
+        path:"/regions/:id/organizations",
+        name:"organizations",
+        component:OrganizationPage
     }
 ];
 
